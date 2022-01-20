@@ -1,4 +1,4 @@
-# Database
+# Creating a basis database with sqlite3
 from tkinter import *
 from PIL import ImageTk, Image
 from pathlib import Path
