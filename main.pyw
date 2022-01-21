@@ -136,11 +136,11 @@ eng_entry.show()
 def submit_form():
     kor = korean_entry.widget.get()
     eng = eng_entry.widget.get()
-    # showinfo("word submitted", f"korean: {ko}, english: {eng}")
+    # showinfo("Word submitted", f"korean: {kor}, english: {eng}")
     row = sql.Row(kor=kor, eng=eng)
     sql.add_row(row)
     anki.create()
-    root.quit()
+    root.quit()  # close the window
 
 
 submit = BlueButton(col=0, row=2, card="se",
