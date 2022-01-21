@@ -10,7 +10,7 @@ root.iconbitmap('./images/south_korea_15805.ico')
 root.geometry("400x400")
 
 # Create connection to database
-conn = sqlite3.connect("./data/address_book.db")
+conn = sqlite3.connect("./dbs/address_book.db")
 # Create cursor
 c = conn.cursor()
 
