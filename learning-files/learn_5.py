@@ -26,30 +26,43 @@ my_label = Label(image=images[image_index])
 my_label.grid(row=0, column=0, columnspan=3)
 
 # show status with current image index
+
+
 status = Label(
     root, text=f"Image {image_index+1} of {len(images)}", bd=1, relief=SUNKEN)
 status.grid(row=2, column=0, columnspan=3, sticky=E)
 
 
+def draw_status():
+    global status
+    status.grid_forget()
+    status = Label(
+        root, text=f"Image {image_index+1} of {len(images)}", bd=1, relief=SUNKEN)
+    status.grid(row=2, column=0, columnspan=3, sticky=E)
+
 # Button to loop between images
+
+
 def next_image():
     global image_index
     global my_label
-    image_index = (image_index + 1) % (len(images) - 1)
+    image_index = (image_index + 1) % len(images)
 
     my_label.grid_forget()
     my_label = Label(image=images[image_index])
     my_label.grid(row=0, column=0, columnspan=3)
+    draw_status()
 
 
 def last_image():
     global image_index
     global my_label
-    image_index = (image_index - 1) & (len(images)-1)
+    image_index = (image_index - 1) % len(images)
 
     my_label.grid_forget()
     my_label = Label(image=images[image_index])
     my_label.grid(row=0, column=0, columnspan=3)
+    draw_status()
 
 
 button_back = Button(root, text="<<", command=last_image, padx=20)
