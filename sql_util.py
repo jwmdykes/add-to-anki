@@ -1,3 +1,4 @@
+# Obviously vulnerable to an sql injection attack but I'm the only one using the db
 import sqlite3
 from dataclasses import dataclass
 import pandas as pd
