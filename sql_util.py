@@ -36,6 +36,9 @@ def read_db():
 
 
 def add_row(row: Row):
+    """
+    Does not do any logic or decision making, just adds the row to the db
+    """
     name = "koreng"
     conn = sqlite3.connect(f"./dbs/{name}.db")
     conn.execute(
