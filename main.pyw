@@ -4,24 +4,34 @@ import sys
 import sql_util as sql
 import add_to_anki as anki
 
-colors = {
-    'blue5': '#011f4b',
-    'blue4': '#03396c',
-    'blue3': '#005b96',
-    'blue2': '#6497b1',
-    'blue1': '#b3cde0',
+pink = {
+    5: '#E60965',
+    4: '#F94892',
+    3: '#FFA1C9',
+    2: '#FBE5E5',
+    1: '#FFFDE4'
 }
+
+blue = {
+    5: '#011f4b',
+    4: '#03396c',
+    3: '#005b96',
+    2: '#6497b1',
+    1: '#b3cde0',
+}
+
+colors = blue
 
 font = ("Courier", 24)
 small_font = ("Courier", 14)
 
 root = tk.Tk()
 root.title("Input a Korean English pair")
-root.configure(bg=colors['blue5'])
+root.configure(bg=colors[5])
 width = 500
 height = 300
 root.geometry(f"{width}x{height}")
-root.attributes('-alpha', 0.9)
+root.attributes('-alpha', 0.7)
 root.attributes("-topmost", True)
 root.overrideredirect(1)
 
@@ -48,7 +58,7 @@ tk.Grid.rowconfigure(root, 0, weight=1)
 tk.Grid.columnconfigure(root, 0, weight=1)
 
 frame = tk.Frame(root)
-frame.configure(bg=colors['blue5'])
+frame.configure(bg=colors[5])
 
 frame.grid(row=0, column=0, sticky="news", padx=3, pady=3)
 # close window when focus goes outside the frame
@@ -67,9 +77,9 @@ class BlueBox():
         self.widget = tk.Entry(
             frame,
             width=35,
-            bg=colors['blue4'], fg=colors['blue1'],
+            bg=colors[4], fg=colors[1],
             borderwidth=5,
-            insertbackground=colors['blue1'],
+            insertbackground=colors[1],
             font=font)
         self.widget.grid(row=self.row, column=self.col, columnspan=3,
                          padx=10, pady=5, sticky="news")
@@ -93,7 +103,7 @@ class BlueButton():
             text=self.text,
             padx=40, pady=5,
             command=self.command,
-            bg=colors['blue4'], fg=colors['blue1'],
+            bg=colors[4], fg=colors[1],
             borderwidth=2,
             font=font)
         self.widget.grid(row=self.row, column=self.col, columnspan=3,
@@ -114,7 +124,7 @@ class BlueLabel():
             frame,
             text=self.text,
             padx=40, pady=20,
-            bg=colors['blue4'], fg=colors['blue1'],
+            bg=colors[4], fg=colors[1],
             borderwidth=2,
             font=small_font
         )
